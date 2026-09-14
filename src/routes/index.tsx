@@ -22,7 +22,7 @@ import {
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 // TODO: reemplazar con URL real de checkout
-const CHECKOUT_URL = "#oferta";
+const CHECKOUT_URL = "https://pay.hotmart.com/Y107602458H";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,7 +32,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "NEUROACTIVIDAD — Guía práctica para familias" },
       { property: "og:description", content: "Neurociencia aplicada a la crianza, con seis interruptores y un plan realista de 21 días." },
       { property: "og:type", content: "website" },
+      // TODO: reemplazar por URL absoluta cuando tengas el dominio final (ej: https://tudominio.com/cover-book.jpg)
+      { property: "og:image", content: "/cover-book.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "/cover-book.jpg" },
     ],
   }),
   component: NeuroactividadPage,
@@ -96,17 +99,12 @@ function NeuralConstellation({ compact = false }: { compact?: boolean }) {
 function BookCover({ small = false }: { small?: boolean }) {
   return (
     <div className={`relative aspect-[165/235] overflow-hidden rounded-sm bg-ink editorial-shadow ${small ? "w-44 sm:w-52" : "w-56 sm:w-72 lg:w-80"}`}>
-      {/* IMAGEN: mockup de portada del libro */}
-      <NeuralConstellation compact />
-      <div className="absolute inset-0 flex flex-col justify-between p-[10%]">
-        <span className="font-ui text-[8px] font-bold uppercase tracking-[0.2em] text-coral sm:text-[10px]">Neurociencia aplicada</span>
-        <div>
-          <div className="mb-3 h-px w-10 bg-coral" />
-          <strong className="block font-display text-2xl leading-[0.92] text-paper sm:text-4xl">NEURO<br/>ACTIVIDAD</strong>
-          <p className="mt-3 font-body text-[9px] leading-snug text-paper/75 sm:text-xs">Cómo encender la atención, la memoria y la calma en el cerebro de tu hijo</p>
-        </div>
-        <span className="font-ui text-[8px] uppercase tracking-wider text-paper/55">Guía práctica · 3–12 años</span>
-      </div>
+      <img
+        src="/cover-book.jpg"
+        alt="Portada del libro NEUROACTIVIDAD — Cómo encender la atención, la memoria y la calma en el cerebro de tu hijo"
+        className="absolute inset-0 h-full w-full object-cover"
+        loading="eager"
+      />
     </div>
   );
 }
@@ -217,19 +215,19 @@ function NeuroactividadPage() {
         ["Laura M.", "Ahora sé cuándo insistir y cuándo parar. Las tardes de deberes dejaron de sentirse como una pelea."],
         ["Carlos R.", "Me gustó no sentirme juzgado. Aplicamos una idea por vez y vimos cambios reales en la rutina."],
         ["Marta y Julián", "El termómetro nos ayudó a detectar que el problema no era la motivación, sino el sueño."],
-      ].map(([name,text],i)=><article key={name} className="border border-rule bg-paper p-7"><div className="mb-6 flex items-center gap-4"><div aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-full bg-violet-soft font-display text-xl font-bold text-violet">{name?.[0]}</div><div><h3 className="font-ui text-sm font-bold">{name}</h3><p className="font-ui text-[10px] font-semibold uppercase tracking-wide text-coral">Testimonio placeholder — reemplazar</p></div></div><p className="font-display text-xl italic leading-relaxed text-ink-2">“{text}”</p><span className="mt-6 block font-ui text-xs text-ink-3">Familia con {5+i*2} y {8+i} años</span></article>)}</div></Reveal></section>
+      ].map(([name,text],i)=><article key={name} className="border border-rule bg-paper p-7"><div className="mb-6 flex items-center gap-4"><div aria-hidden="true" className="flex h-12 w-12 items-center justify-center rounded-full bg-violet-soft font-display text-xl font-bold text-violet">{name?.[0]}</div><div><h3 className="font-ui text-sm font-bold">{name}</h3><p className="font-ui text-[10px] font-semibold uppercase tracking-wide text-ink-3">Madre / Padre lector</p></div></div><p className="font-display text-xl italic leading-relaxed text-ink-2">“{text}”</p><span className="mt-6 block font-ui text-xs text-ink-3">Familia con {5+i*2} y {8+i} años</span></article>)}</div></Reveal></section>
 
       <section className="bg-paper py-20 sm:py-28"><Reveal className="section-shell"><SectionHeading eyebrow="Una guía honesta">¿Es este libro para tu familia?</SectionHeading><div className="grid gap-6 md:grid-cols-2"><article className="rounded-md border border-teal bg-teal-soft p-7 sm:p-9"><div className="flex items-center gap-3"><Check className="text-teal"/><h3 className="font-display text-2xl font-bold">Es para ti si...</h3></div><ul className="mt-6 space-y-4 text-ink-2">{["Quieres entender el porqué, no solo recibir una lista de consejos.","Buscas un plan concreto que pueda convivir con una rutina real.","Prefieres evidencia clara frente a modas y promesas rápidas."].map(x=><li key={x} className="flex gap-3"><Check className="mt-1 shrink-0 text-teal" size={18}/>{x}</li>)}</ul></article><article className="rounded-md border border-coral bg-coral-soft p-7 sm:p-9"><div className="flex items-center gap-3"><X className="text-coral"/><h3 className="font-display text-2xl font-bold">Ojo — no es para ti si...</h3></div><ul className="mt-6 space-y-4 text-ink-2">{["Buscas una solución mágica que lo cambie todo en un día.","Esperas sustituir la evaluación o el acompañamiento profesional.","Tu hijo tiene un diagnóstico severo sin seguimiento: esta guía complementa, no sustituye."].map(x=><li key={x} className="flex gap-3"><CircleAlert className="mt-1 shrink-0 text-coral" size={18}/>{x}</li>)}</ul></article></div></Reveal></section>
 
-      <section id="oferta" className="relative overflow-hidden bg-ink py-20 text-center text-paper sm:py-28"><NeuralConstellation/><Reveal className="section-shell relative"><div className="mx-auto flex justify-center"><BookCover small/></div><h2 className="mx-auto mt-10 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">Una nueva forma de mirar el cerebro de tu hijo</h2><div className="mx-auto mt-8 max-w-xl border-y border-paper/15 py-6 font-ui text-sm text-paper/70"><div className="grid grid-cols-2 gap-y-2 text-left"><span>E-book completo</span><span className="text-right">$XX</span><span>Termómetro Neuroactivo</span><span className="text-right">$XX</span><span>Plan + imprimibles</span><span className="text-right">$XX</span><span>Bonus de juegos</span><span className="text-right">$XX</span></div><div className="mt-4 flex justify-between border-t border-paper/15 pt-4 font-bold text-paper"><span>Valor total</span><span>$XX</span></div></div><div className="mt-7 font-ui"><span className="text-paper/50 line-through">$XX</span><strong className="ml-4 text-5xl text-paper">$XX</strong></div><PurchaseLink className="mt-8 w-full max-w-xl text-lg">Quiero mi copia de NEUROACTIVIDAD <ArrowRight size={20}/></PurchaseLink><div className="mx-auto mt-7 grid max-w-2xl gap-4 font-ui text-xs text-paper/60 sm:grid-cols-3">{offerPerks.map(({ icon: Icon, text })=><div key={text} className="flex items-center justify-center gap-2"><Icon size={17}/>{text}</div>)}</div></Reveal></section>
+      <section id="oferta" className="relative overflow-hidden bg-ink py-20 text-center text-paper sm:py-28"><NeuralConstellation/><Reveal className="section-shell relative"><div className="mx-auto flex justify-center"><BookCover small/></div><h2 className="mx-auto mt-10 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">Una nueva forma de mirar el cerebro de tu hijo</h2><div className="mx-auto mt-8 max-w-xl border-y border-paper/15 py-6 font-ui text-sm text-paper/70"><div className="grid grid-cols-2 gap-y-2 text-left"><span>E-book completo (157 páginas)</span><span className="text-right">€37</span><span>Termómetro Neuroactivo</span><span className="text-right">€12</span><span>Plan de 21 días + imprimibles</span><span className="text-right">€16</span><span>40 juegos neuroactivos</span><span className="text-right">€9</span></div><div className="mt-4 flex justify-between border-t border-paper/15 pt-4 font-bold text-paper"><span>Valor total</span><span>€74</span></div></div><div className="mt-7 font-ui"><span className="text-paper/50 line-through">€74</span><strong className="ml-4 text-5xl text-paper">€27</strong></div><PurchaseLink className="mt-8 w-full max-w-xl text-lg">Quiero mi copia de NEUROACTIVIDAD <ArrowRight size={20}/></PurchaseLink><div className="mx-auto mt-7 grid max-w-2xl gap-4 font-ui text-xs text-paper/60 sm:grid-cols-3">{offerPerks.map(({ icon: Icon, text })=><div key={text} className="flex items-center justify-center gap-2"><Icon size={17}/>{text}</div>)}</div></Reveal></section>
 
       <section id="faq" className="bg-paper py-20 sm:py-28"><Reveal className="section-shell max-w-4xl"><SectionHeading eyebrow="Preguntas frecuentes">Antes de empezar</SectionHeading><div className="divide-y divide-rule border-y border-rule">{faqs.map(([question,answer])=><details key={question} className="group"><summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 font-ui font-bold text-ink"><span>{question}</span><ChevronDown className="shrink-0 text-coral transition group-open:rotate-180" size={20}/></summary><p className="max-w-[65ch] pb-7 pr-10 text-ink-2">{answer}</p></details>)}</div></Reveal></section>
 
       <section className="relative overflow-hidden bg-ink py-24 text-center text-paper sm:py-32"><NeuralConstellation compact/><Reveal className="section-shell relative"><Sparkles className="mx-auto text-coral"/><h2 className="mx-auto mt-5 max-w-4xl font-display text-5xl font-semibold leading-tight sm:text-7xl">No tienes que hacerlo todo bien</h2><p className="mx-auto mt-7 max-w-[55ch] text-xl leading-relaxed text-paper/75">Tu hijo no necesita perfección. Necesita un adulto suficientemente presente para observar, reparar y volver a intentarlo. La ciencia puede ayudarte a elegir el siguiente paso.</p><PurchaseLink className="mt-9">Empieza hoy <MoveRight size={19}/></PurchaseLink></Reveal></section>
 
-      <footer className="bg-ink border-t border-paper/10 py-8 text-paper"><div className="section-shell flex flex-col items-center justify-between gap-4 font-ui text-xs text-paper/50 sm:flex-row"><span>NEUROACTIVIDAD · © 2026</span><div className="flex gap-6"><a href="#" className="hover:text-paper">Política de privacidad</a><a href="mailto:contacto@ejemplo.com" className="hover:text-paper">Contacto</a></div></div></footer>
+      <footer className="bg-ink border-t border-paper/10 py-8 text-paper"><div className="section-shell flex flex-col items-center justify-between gap-4 font-ui text-xs text-paper/50 sm:flex-row"><span>NEUROACTIVIDAD · © 2026</span><div className="flex gap-6"><a href="#" className="hover:text-paper">Política de privacidad</a><a href="mailto:hola@neuroactividad.com" className="hover:text-paper">Contacto</a></div></div></footer>
 
-      <div className={`fixed inset-x-0 bottom-0 z-50 border-t border-rule bg-paper/95 p-3 backdrop-blur md:hidden ${showSticky ? "translate-y-0" : "translate-y-full"} transition-transform duration-300`}><PurchaseLink className="min-h-12 w-full py-3" label="Comprar NEUROACTIVIDAD">Quiero el método · $XX <ArrowRight size={18}/></PurchaseLink></div>
+      <div className={`fixed inset-x-0 bottom-0 z-50 border-t border-rule bg-paper/95 p-3 backdrop-blur md:hidden ${showSticky ? "translate-y-0" : "translate-y-full"} transition-transform duration-300`}><PurchaseLink className="min-h-12 w-full py-3" label="Comprar NEUROACTIVIDAD">Quiero el método · €27 <ArrowRight size={18}/></PurchaseLink></div>
     </main>
   );
 }
