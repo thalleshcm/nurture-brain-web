@@ -220,6 +220,11 @@ function NeuroactividadPage() {
 
       <section className="bg-paper-2 py-20 sm:py-28"><Reveal className="section-shell">
         <SectionHeading eyebrow="Experiencias de familias">Cambios pequeños que se sienten grandes</SectionHeading>
+        <div className="-mt-4 mb-12 grid grid-cols-3 gap-3 sm:gap-4">
+          {["/faces-1.jpg", "/faces-2.jpg", "/faces-3.jpg"].map((src) => (
+            <div key={src} className="aspect-square overflow-hidden rounded-md"><img src={src} alt="Madres e hijos en un momento cotidiano en casa" className="h-full w-full object-cover" loading="lazy" /></div>
+          ))}
+        </div>
         <p className="-mt-6 mb-10 max-w-[60ch] font-ui text-xs text-ink-3">Ejemplos representativos de la experiencia esperada al aplicar el método. Iremos sustituyéndolos por testimonios reales de familias a medida que lleguen.</p>
         <div className="grid gap-5 md:grid-cols-3">{[
         ["Laura M.", "Ahora sé cuándo insistir y cuándo parar. Las tardes de deberes dejaron de sentirse como una pelea.", "bg-violet-soft text-violet"],
