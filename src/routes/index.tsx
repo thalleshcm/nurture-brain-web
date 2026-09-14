@@ -155,7 +155,7 @@ function NeuroactividadPage() {
             </div>
             <div className="mt-9">
               <PurchaseLink>Quiero el método completo <ArrowRight size={18} /></PurchaseLink>
-              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-ui text-sm text-paper/65"><span><s>$XX</s> <strong className="ml-2 text-lg text-paper">$XX</strong></span><span className="w-full sm:w-auto">Acceso inmediato en PDF · Garantía de 7 días</span></div>
+              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-ui text-sm text-paper/65"><span><s>€74</s> <strong className="ml-2 text-lg text-paper">€27</strong></span><span className="w-full sm:w-auto">Acceso inmediato en PDF · Garantía de 7 días</span></div>
             </div>
           </div>
           <div className="relative mx-auto rotate-2 lg:mr-4"><div className="absolute -inset-8 rounded-full border border-coral/20" /><BookCover /></div>
