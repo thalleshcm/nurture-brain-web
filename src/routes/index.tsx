@@ -140,12 +140,12 @@ function NeuroactividadPage() {
     <main className="overflow-hidden bg-paper pb-20 text-ink md:pb-0">
       <section id="inicio" className="relative min-h-[92svh] overflow-hidden bg-ink py-16 text-paper sm:py-20 lg:flex lg:min-h-[780px] lg:items-center">
         <NeuralConstellation />
-        <div className="section-shell relative grid items-center gap-14 lg:grid-cols-[1.25fr_0.75fr]">
-          <div className="max-w-3xl">
+        <div className="section-shell relative grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.72fr)]">
+          <div className="min-w-0 max-w-3xl">
             <p className="font-ui text-xs font-bold uppercase tracking-[0.2em] text-coral sm:text-sm">Neurociencia aplicada a la crianza</p>
             <h1 className="mt-6 font-display font-semibold leading-[0.93] text-paper">
               <span className="block text-3xl sm:text-5xl lg:text-6xl">El método para despertar</span>
-              <span className="mt-2 block text-[clamp(2.2rem,9.5vw,7.5rem)] font-black">NEUROACTIVIDAD</span>
+              <span className="mt-2 block max-w-full break-words text-[clamp(2.2rem,5.8vw,7.5rem)] font-black">NEUROACTIVIDAD</span>
             </h1>
             <p className="mt-7 max-w-[60ch] text-lg leading-relaxed text-paper/80 sm:text-xl">Cómo encender la atención, la memoria y la calma en el cerebro de tu hijo con 6 interruptores respaldados por la ciencia — y un plan de 21 días que cabe en tu rutina real.</p>
             <div className="mt-6 flex flex-wrap items-center gap-3 font-ui text-sm">
