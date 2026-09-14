@@ -145,8 +145,8 @@ function NeuroactividadPage() {
           <div className="max-w-3xl">
             <p className="font-ui text-xs font-bold uppercase tracking-[0.2em] text-coral sm:text-sm">Neurociencia aplicada a la crianza</p>
             <h1 className="mt-6 font-display font-semibold leading-[0.93] text-paper">
-              <span className="block text-4xl sm:text-5xl lg:text-6xl">El método para despertar</span>
-              <span className="mt-2 block text-[clamp(3rem,12vw,7.5rem)] font-black">NEUROACTIVIDAD</span>
+              <span className="block text-3xl sm:text-5xl lg:text-6xl">El método para despertar</span>
+              <span className="mt-2 block text-[clamp(2.2rem,9.5vw,7.5rem)] font-black">NEUROACTIVIDAD</span>
             </h1>
             <p className="mt-7 max-w-[60ch] text-lg leading-relaxed text-paper/80 sm:text-xl">Cómo encender la atención, la memoria y la calma en el cerebro de tu hijo con 6 interruptores respaldados por la ciencia — y un plan de 21 días que cabe en tu rutina real.</p>
             <div className="mt-6 flex flex-wrap items-center gap-3 font-ui text-sm">
@@ -155,7 +155,7 @@ function NeuroactividadPage() {
             </div>
             <div className="mt-9">
               <PurchaseLink>Quiero el método completo <ArrowRight size={18} /></PurchaseLink>
-              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-ui text-sm text-paper/65"><span><s>$XX</s> <strong className="ml-2 text-lg text-paper">$XX</strong></span><span>Acceso inmediato en PDF · Garantía de 7 días</span></div>
+              <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-ui text-sm text-paper/65"><span><s>$XX</s> <strong className="ml-2 text-lg text-paper">$XX</strong></span><span className="w-full sm:w-auto">Acceso inmediato en PDF · Garantía de 7 días</span></div>
             </div>
           </div>
           <div className="relative mx-auto rotate-2 lg:mr-4"><div className="absolute -inset-8 rounded-full border border-coral/20" /><BookCover /></div>
