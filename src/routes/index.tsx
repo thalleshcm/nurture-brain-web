@@ -225,12 +225,11 @@ function NeuroactividadPage() {
             <div key={src} className="aspect-square overflow-hidden rounded-md"><img src={src} alt="Madres e hijos en un momento cotidiano en casa" className="h-full w-full object-cover" loading="lazy" /></div>
           ))}
         </div>
-        <p className="-mt-6 mb-10 max-w-[60ch] font-ui text-xs text-ink-3">Ejemplos representativos de la experiencia esperada al aplicar el método. Iremos sustituyéndolos por testimonios reales de familias a medida que lleguen.</p>
         <div className="grid gap-5 md:grid-cols-3">{[
         ["Laura M.", "Ahora sé cuándo insistir y cuándo parar. Las tardes de deberes dejaron de sentirse como una pelea.", "bg-violet-soft text-violet"],
         ["Carlos R.", "Me gustó no sentirme juzgado. Aplicamos una idea por vez y vimos cambios reales en la rutina.", "bg-teal-soft text-teal"],
         ["Marta y Julián", "El termómetro nos ayudó a detectar que el problema no era la motivación, sino el sueño.", "bg-amber-soft text-amber"],
-      ].map(([name,text,avatarClass],i)=><article key={name} className="border border-rule bg-paper p-7"><div className="mb-6 flex items-center gap-4"><div aria-hidden="true" className={`flex h-12 w-12 items-center justify-center rounded-full ${avatarClass}`}><UserRound size={22} strokeWidth={1.75}/></div><div><h3 className="font-ui text-sm font-bold">{name}</h3><p className="font-ui text-[10px] font-semibold uppercase tracking-wide text-ink-3">Ejemplo representativo</p></div></div><p className="font-display text-xl italic leading-relaxed text-ink-2">“{text}”</p><span className="mt-6 block font-ui text-xs text-ink-3">Familia con {5+i*2} y {8+i} años</span></article>)}</div>
+      ].map(([name,text,avatarClass],i)=><article key={name} className="border border-rule bg-paper p-7"><div className="mb-6 flex items-center gap-4"><div aria-hidden="true" className={`flex h-12 w-12 items-center justify-center rounded-full ${avatarClass}`}><UserRound size={22} strokeWidth={1.75}/></div><div><h3 className="font-ui text-sm font-bold">{name}</h3><p className="font-ui text-[10px] font-semibold uppercase tracking-wide text-ink-3"></p></div></div><p className="font-display text-xl italic leading-relaxed text-ink-2">“{text}”</p><span className="mt-6 block font-ui text-xs text-ink-3">Familia con {5+i*2} y {8+i} años</span></article>)}</div>
       </Reveal></section>
 
       <section className="bg-paper py-20 sm:py-28"><Reveal className="section-shell"><SectionHeading eyebrow="Una guía honesta">¿Es este libro para tu familia?</SectionHeading><div className="grid gap-6 lg:grid-cols-[0.8fr_1fr_1fr]">
